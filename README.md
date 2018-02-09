@@ -1,8 +1,26 @@
 # American-Fuzzy-Lop-1
-A number of iBoot modules have fuzzing interfaces. This document describes
-how to fuzz those modules, and how to set up a new module for fuzzing.
+Fuzzing is one of the most powerful and proven strategies for identifying
+security issues in real-world software; it is responsible for the vast
+majority of remote code execution and privilege escalation bugs found to date
+in security-critical software.
 
-There are a number of open and closed-source fuzzers available, but by far
-the best is AFL (american fuzzy lop): <http://lcamtuf.coredump.cx/afl/>.
-The rest of this document is geared towards fuzzing with AFL, but the
-interface is fairly generic.
+Unfortunately, fuzzing is also relatively shallow; blind, random mutations
+make it very unlikely to reach certain code paths in the tested code, leaving
+some vulnerabilities firmly outside the reach of this technique.
+
+There have been numerous attempts to solve this problem. One of the early
+approaches - pioneered by Tavis Ormandy - is corpus distillation. The method
+relies on coverage signals to select a subset of interesting seeds from a
+massive, high-quality corpus of candidate files, and then fuzz them by
+traditional means. The approach works exceptionally well, but requires such
+a corpus to be readily available. In addition, block coverage measurements
+provide only a very simplistic understanding of program state, and are less
+useful for guiding the fuzzing effort in the long haul.
+
+Other, more sophisticated research has focused on techniques such as program
+flow analysis ("concolic execution"), symbolic execution, or static analysis.
+All these methods are extremely promising in experimental settings, but tend
+to suffer from reliability and performance problems in practical uses - and
+currently do not offer a viable alternative to "dumb" fuzzing techniques.
+
+I Stumbled across this, thought i should upload."Information wants to be free"
