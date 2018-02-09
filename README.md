@@ -1,4 +1,6 @@
 # American-Fuzzy-Lop-1
+American fuzzy lop is a security-oriented fuzzer that employs a novel type of compile-time instrumentation and genetic algorithms to automatically discover clean, interesting test cases that trigger new internal states in the targeted binary. This substantially improves the functional coverage for the fuzzed code. The compact synthesized corpora produced by the tool are also useful for seeding other, more labor- or resource-intensive testing regimes down the road.
+
 Fuzzing is one of the most powerful and proven strategies for identifying
 security issues in real-world software; it is responsible for the vast
 majority of remote code execution and privilege escalation bugs found to date
